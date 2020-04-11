@@ -6,5 +6,9 @@ namespace WolfAndSheepGame
 {
     class Wolf : Sheep
     {
+        public Wolf()
+        {
+            Symbol = 'W';
+        }
     }
 }

@@ -4,7 +4,14 @@ using System.Text;
 
 namespace WolfAndSheepGame
 {
-    class Sheep
+    public class Sheep
     {
+        // Character to represent the sheep.
+        public char Symbol { get; protected set; }
+
+        public Sheep()
+        {
+            Symbol = 'S';
+        }
     }
 }
