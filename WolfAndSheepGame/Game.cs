@@ -4,11 +4,8 @@ using System.Text;
 
 namespace WolfAndSheepGame
 {
-    class Wolf : Sheep
+    class Game
     {
-        public Wolf()
-        {
-            Symbol = 'W';
-        }
+
     }
 }
