@@ -15,20 +15,23 @@ namespace WolfAndSheepGame
         public Board()
         {
             board = new Sheep[8, 8];
-            AssignPositions();
         }
-
-        private void AssignPositions()
+        public void AssignPositions(int x, int y, Sheep sheep)
         {
+            if (sheep.Symbol == 'W')
+                board[x, y] = new Wolf();
+            else
+                board[x, y] = new Sheep();
+
             // Assign the beginning positions.
             // For now, wolf starts in a specific spot for testing purposes.
-            board[0, 4] = new Wolf();
+            //board[0, 4] = new Wolf();
 
             // Add the Sheeps.
-            board[7, 1] = new Sheep();
-            board[7, 3] = new Sheep();
-            board[7, 5] = new Sheep();
-            board[7, 7] = new Sheep();
+            //board[7, 1] = new Sheep();
+            //board[7, 3] = new Sheep();
+            //board[7, 5] = new Sheep();
+            //board[7, 7] = new Sheep();
         }
 
         // Check if a board's position is occupied.

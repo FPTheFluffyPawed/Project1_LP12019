@@ -13,5 +13,6 @@ namespace WolfAndSheepGame
         {
             Symbol = 'S';
         }
+        //public void Move(string, string)
     }
 }
