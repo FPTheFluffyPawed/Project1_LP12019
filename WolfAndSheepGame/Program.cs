@@ -6,7 +6,9 @@ namespace WolfAndSheepGame
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Board board = new Board();
+            Console.WriteLine("\nBoard rendering...");
+            board.Render();
         }
     }
 }
