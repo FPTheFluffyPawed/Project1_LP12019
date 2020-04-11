@@ -6,6 +6,5 @@ namespace WolfAndSheepGame
 {
     class Wolf : Sheep
     {
-
     }
 }
