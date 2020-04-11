@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WolfAndSheepGame
 {
-    class Wolf : Sheep
+    class Position
     {
 
     }
