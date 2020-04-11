@@ -8,16 +8,24 @@ namespace WolfAndSheepGame
     {
 
         private Board board = new Board();
-        private Wolf wolf; 
-        private Sheep sheep1;
-        private Sheep sheep2;
-        private Sheep sheep3;
-        private Sheep sheep4;
+        private Wolf wolf = new Wolf(); 
+        private Sheep sheep1 = new Sheep();
+        private Sheep sheep2 = new Sheep();
+        private Sheep sheep3 = new Sheep();
+        private Sheep sheep4 = new Sheep();
 
-        private int turn = 1;
+        private int turn = 0;
 
-        private Game()
+        public Game()
         {
+            board.AssignPositions(3, 3, wolf);
+
+            board.AssignPositions(7, 1, sheep1);
+            board.AssignPositions(7, 3, sheep2);
+            board.AssignPositions(7, 5, sheep3);
+            board.AssignPositions(7, 7, sheep4);
+
+            board.Render();
         }
         private (string, string) Directions()
         {
@@ -35,15 +43,58 @@ namespace WolfAndSheepGame
             Hdirection = Console.ReadLine();
             return (Hdirection, Vdirection);
         }
-        private void Play()
+
+        private bool WinCondition()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                Position position = new Position(7,i);
+                if (board.GetPieceAt(position) == wolf)
+                    return true;
+            }
+            return false;
+        }
+
+        private bool LoseCondition()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    //
+                    Position position = new Position(i,j);
+
+                    //
+                    Position position1 = new Position(i+1,j+1);
+
+                    //
+                    Position position2 = new Position(i+1,j-1);
+
+                    //
+                    Position position3 = new Position(i-1,j+1);
+
+                    //
+                    Position position4 = new Position(i-1,j-1);
+
+                   if (board.GetPieceAt(position) == wolf)
+                        //adsadadas 
+                        if (board.GetPieceAt(position1) == null || board.GetPieceAt(position2) == null
+                        || board.GetPieceAt(position3) == null || board.GetPieceAt(position4) == null)
+                            return false;
+                }
+            }
+            return true;
+        }
+
+        public void Play()
         {   
             string Hdirection;
             string Vdirection;
 
             while (true)
             {
-
-                if(turn == 0)
+                turn++;
+                if(turn % 2 == 0)
                 {
                     Console.WriteLine("Its player 2 turn!");
                     Console.WriteLine("Witch sheep will you choose?");
@@ -55,53 +106,49 @@ namespace WolfAndSheepGame
                     {
                         case "1":
                             (Hdirection, Vdirection) = Directions();
-                            sheep1.Move(Hdirection, Vdirection);
+                            //sheep1.Move(Hdirection, Vdirection);
                             break;
 
                         case "2":
                             (Hdirection, Vdirection) = Directions();
-                            sheep2.Move(Hdirection, Vdirection);
+                            //sheep2.Move(Hdirection, Vdirection);
                             break;
 
                         case "3":
                             (Hdirection, Vdirection) = Directions();
-                            sheep3.Move(Hdirection, Vdirection);
+                            //sheep3.Move(Hdirection, Vdirection);
                             break;
                         case "4":
                             (Hdirection, Vdirection) = Directions();
-                            sheep4.Move(Hdirection, Vdirection);
+                            //sheep4.Move(Hdirection, Vdirection);
                             break;
 
                         default:
                             break;
                     }
-
-                    turn = 1;
                 }
 
-                else if(turn == 1)
+                if(turn % 2 == 1)
                 {
-                    Console.WriteLine("Its player 2 turn!");
+                    Console.WriteLine("Its player 1 turn!");
                     (Hdirection, Vdirection) = Directions();
-                    wolf.Move(Hdirection, Vdirection);
+                    //wolf.Move(Hdirection, Vdirection);
 
-                    turn = 0;
                 }
 
                 //check for wolf win condition
-                if (wolf.CheckWin == 1)
+                if (WinCondition() == true)
                 {
                     Console.WriteLine("The Player 1 Won!!!");
                     break;
                 }
 
-                //check for wolf lose condition
-                if (wolf.CheckLose == 1)
+               /* //check for wolf lose condition
+                if (LoseCondition() == true)
                 {
                     Console.WriteLine("The Player 2 Won!!!");
                     break;
-                }
-
+                }*/
             }
         }
 
