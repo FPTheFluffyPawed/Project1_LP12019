@@ -6,9 +6,10 @@ namespace WolfAndSheepGame
 {
     class Wolf : Sheep
     {
-        public Wolf()
+        public Wolf(ConsoleColor color ) : base(color)
         {
             Symbol = 'W';
+            Color = color;
         }
     }
 }

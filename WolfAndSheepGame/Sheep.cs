@@ -9,9 +9,13 @@ namespace WolfAndSheepGame
         // Character to represent the sheep.
         public char Symbol { get; protected set; }
 
-        public Sheep()
+        // Color to represent the symbol.
+        public ConsoleColor Color { get; set; }
+
+        public Sheep(ConsoleColor color)
         {
             Symbol = 'S';
+            Color = color;
         }
         //public void Move(string, string)
     }
