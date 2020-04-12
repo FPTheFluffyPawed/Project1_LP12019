@@ -8,11 +8,11 @@ namespace WolfAndSheepGame
     {
 
         private Board board = new Board();
-        private Wolf wolf = new Wolf(); 
-        private Sheep sheep1 = new Sheep();
-        private Sheep sheep2 = new Sheep();
-        private Sheep sheep3 = new Sheep();
-        private Sheep sheep4 = new Sheep();
+        private Wolf wolf = new Wolf(ConsoleColor.Red); 
+        private Sheep sheep1 = new Sheep(ConsoleColor.Magenta);
+        private Sheep sheep2 = new Sheep(ConsoleColor.Green);
+        private Sheep sheep3 = new Sheep(ConsoleColor.Blue);
+        private Sheep sheep4 = new Sheep(ConsoleColor.Yellow);
 
         private int turn = 0;
 
