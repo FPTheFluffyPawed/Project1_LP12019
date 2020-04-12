@@ -17,17 +17,9 @@ namespace WolfAndSheepGame
 
         //private int turn = 0;
 
-        public Game()
-        {
-            //board.AssignPositions(3, 3, wolf);
-            //
-            //board.AssignPositions(7, 1, sheep1);
-            //board.AssignPositions(7, 3, sheep2);
-            //board.AssignPositions(7, 5, sheep3);
-            //board.AssignPositions(7, 7, sheep4);
-            //
-            //board.Render();
-        }
+        // Empty constructor.
+        public Game() { }
+
         private (string, string) Directions()
         {
             string Hdirection;
@@ -113,14 +105,22 @@ namespace WolfAndSheepGame
                 if(turn % 2 == 1)
                 {
                     Console.WriteLine("Player 1, it's your turn!");
-                    Console.ReadLine();
+                    // wolf.Move();
                 }
                 else
                 {
                     Console.WriteLine("Player 2, it's your turn!");
-                    Console.ReadLine();
+                    Console.WriteLine("Which sheep to move?");
+                    string aux = Console.ReadLine();
+
+                    switch(aux)
+                    {
+                        case "1":
+                            sheep1.Move(board);
+                            break;
+                    }
                 }
-                // Process move
+
                 // Repeat ->
             }
         }
