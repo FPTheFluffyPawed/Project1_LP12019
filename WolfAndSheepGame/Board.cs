@@ -19,9 +19,9 @@ namespace WolfAndSheepGame
         public void AssignPositions(int x, int y, Sheep sheep)
         {
             if (sheep.Symbol == 'W')
-                board[x, y] = new Wolf();
+                board[x, y] = sheep;
             else
-                board[x, y] = new Sheep();
+                board[x, y] = sheep;
 
             // Assign the beginning positions.
             // For now, wolf starts in a specific spot for testing purposes.
@@ -62,15 +62,27 @@ namespace WolfAndSheepGame
 
                     if (IsOccupied(position))
                     {
+                        //Console.BackgroundColor = ConsoleColor.DarkGray;
                         Sheep sheep = GetPieceAt(position);
-                        Console.Write($"{sheep.Symbol}");
+                        Console.BackgroundColor = sheep.Color;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write($"{sheep.Symbol,2:1}");
+                        Console.ResetColor();
                     }
                     else
                     {
                         if ((x + y) % 2 == 0)
-                            Console.Write("X");
+                        {
+                            Console.BackgroundColor = ConsoleColor.DarkGray;
+                            Console.Write("  ");
+                            Console.ResetColor();
+                        }
                         else
-                            Console.Write(" ");
+                        {
+                            Console.BackgroundColor = ConsoleColor.Gray;
+                            Console.Write("  ");
+                            Console.ResetColor();
+                        }
                     }
                 }
                 Console.WriteLine();
