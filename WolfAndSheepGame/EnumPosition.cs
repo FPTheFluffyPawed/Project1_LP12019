@@ -6,6 +6,8 @@ namespace WolfAndSheepGame
 {
     enum EnumPosition
     {
-        Empty, Wolf, Sheep
+        Empty, 
+        Wolf, 
+        Sheep
     }
 }
