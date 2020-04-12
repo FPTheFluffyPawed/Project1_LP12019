@@ -8,7 +8,7 @@ namespace WolfAndSheepGame
         {   
             //Menu menu = new Menu();
             //Console.WriteLine(menu);
-          
+
             Game game = new Game();
             game.Play();
         }

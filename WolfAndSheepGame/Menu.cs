@@ -41,7 +41,7 @@ namespace WolfAndSheepGame
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        Console.WriteLine("manteiga");
+                        Console.WriteLine("Manteiga");
                         System.Environment.Exit(1);
                         break;
                     case "2":

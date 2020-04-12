@@ -63,17 +63,33 @@ namespace WolfAndSheepGame
 
                     if (IsOccupied(position))
                     {
+                        //Console.BackgroundColor = ConsoleColor.DarkGray;
                         Sheep sheep = GetPieceAt(position);
+<<<<<<< HEAD
                         Console.ForegroundColor = sheep.Color;
                         Console.Write($"{sheep.Symbol}");
                         Console.ForegroundColor = ConsoleColor.Gray;
+=======
+                        Console.BackgroundColor = sheep.Color;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write($"{sheep.Symbol,2:1}");
+                        Console.ResetColor();
+>>>>>>> 50e89e63121a4012b489e0984fc6f5488a042cd3
                     }
                     else
                     {
                         if ((x + y) % 2 == 0)
-                            Console.Write("X");
+                        {
+                            Console.BackgroundColor = ConsoleColor.DarkGray;
+                            Console.Write("  ");
+                            Console.ResetColor();
+                        }
                         else
-                            Console.Write(" ");
+                        {
+                            Console.BackgroundColor = ConsoleColor.Gray;
+                            Console.Write("  ");
+                            Console.ResetColor();
+                        }
                     }
                 }
                 Console.WriteLine();
