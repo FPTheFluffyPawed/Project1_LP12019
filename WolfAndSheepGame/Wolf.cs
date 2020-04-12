@@ -6,10 +6,10 @@ namespace WolfAndSheepGame
 {
     class Wolf : Sheep
     {
-        public Wolf(ConsoleColor Color) : base(Color)
+        public Wolf(ConsoleColor color ) : base(color)
         {
-            this.Color = Color;
             Symbol = 'W';
+            Color = color;
         }
     }
 }

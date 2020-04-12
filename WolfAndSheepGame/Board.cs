@@ -16,6 +16,7 @@ namespace WolfAndSheepGame
         {
             board = new Sheep[8, 8];
         }
+
         public void AssignPositions(int x, int y, Sheep sheep)
         {
             if (sheep.Symbol == 'W')
@@ -64,10 +65,16 @@ namespace WolfAndSheepGame
                     {
                         //Console.BackgroundColor = ConsoleColor.DarkGray;
                         Sheep sheep = GetPieceAt(position);
+<<<<<<< HEAD
+                        Console.ForegroundColor = sheep.Color;
+                        Console.Write($"{sheep.Symbol}");
+                        Console.ForegroundColor = ConsoleColor.Gray;
+=======
                         Console.BackgroundColor = sheep.Color;
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.Write($"{sheep.Symbol,2:1}");
                         Console.ResetColor();
+>>>>>>> 50e89e63121a4012b489e0984fc6f5488a042cd3
                     }
                     else
                     {
