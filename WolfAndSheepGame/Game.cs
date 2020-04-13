@@ -33,36 +33,25 @@ namespace WolfAndSheepGame
 
         private bool LoseCondition()
         {
-            return false;
+            Position destination1, destination2, destination3, destination4;
 
-            for (int i = 0; i < 7; i++)
+            destination1 = new Position(wolf.Pos.X - 1, wolf.Pos.Y - 1);
+            destination2 = new Position(wolf.Pos.X - 1, wolf.Pos.Y + 1);
+            destination3 = new Position(wolf.Pos.X + 1, wolf.Pos.Y + 1);
+            destination4 = new Position(wolf.Pos.X + 1, wolf.Pos.Y - 1);
+
+            if (board.IsOccupied(destination1)
+                && board.IsOccupied(destination2)
+                && board.IsOccupied(destination3)
+                && board.IsOccupied(destination4))
             {
-                for (int j = 0; j < 7; j++)
-                {
-                    //
-                    Position position = new Position(i,j);
-
-                    //
-                    Position position1 = new Position(i+1,j+1);
-
-                    //
-                    Position position2 = new Position(i+1,j-1);
-
-                    //
-                    Position position3 = new Position(i-1,j+1);
-
-                    //
-                    Position position4 = new Position(i-1,j-1);
-
-                   if (board.GetPieceAt(position) == wolf)
-                        //adsadadas 
-                        if (board.GetPieceAt(position1) == null || board.GetPieceAt(position2) == null
-                        || board.GetPieceAt(position3) == null || board.GetPieceAt(position4) == null)
-                            return false;
-                }
+                Console.WriteLine("The wolf can't move!");
+                return true;
             }
-            return true;
+            else
+                return false;
         }
+        
         /// <summary>
         /// Method that handles the turn logic between players.
         /// </summary>
@@ -92,7 +81,7 @@ namespace WolfAndSheepGame
                 if(turn % 2 == 1)
                 {
                     Console.WriteLine("Player 1, it's your turn!");
-                    // wolf.Move();
+                    wolf.Move(board);
                 }
                 else
                 {

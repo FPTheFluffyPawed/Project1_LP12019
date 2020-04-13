@@ -48,7 +48,7 @@ namespace WolfAndSheepGame
                 return true;
         }
 
-        public void Move(Board board)
+        public virtual void Move(Board board)
         {
             Position destination;
             string aux;
