@@ -22,25 +22,48 @@ namespace WolfAndSheepGame
 
         public void Move(Board board)
         {
+            bool condition = true;
             Position destination;
-
-            Console.WriteLine("Left or right? ('1' or '2')");
-            string aux = Console.ReadLine();
-            switch(aux)
+            do
             {
-                case "1":
-                    destination = new Position(Pos.X - 1, Pos.Y - 1);
-                    board.MovePiece(this, destination);
-                    Pos = destination;
-                    break;
-                case "2":
-                    destination = new Position(Pos.X - 1, Pos.Y + 1);
-                    board.MovePiece(this, destination);
-                    Pos = destination;
-                    break;
-                default:
-                    break;
-            }
+                Console.WriteLine("Left or right? ('1' or '2')");
+                string aux = Console.ReadLine();
+                switch (aux)
+                {
+                    case "1":
+                        destination = new Position(Pos.X - 1, Pos.Y - 1);
+                        if (board.GetPieceAt(destination) == null)
+                        {
+                            board.MovePiece(this, destination);
+                            Pos = destination;
+                            condition = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("There is already a piece over there!");
+                            Console.WriteLine("Try again");
+                        }
+                        break;
+
+                    case "2":
+                        destination = new Position(Pos.X - 1, Pos.Y + 1);
+                        if (board.GetPieceAt(destination) == null)
+                        {
+                            board.MovePiece(this, destination);
+                            Pos = destination;
+                            condition = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("There is already a piece over there!");
+                            Console.WriteLine("Try again");
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+            } while (condition == true);
         }
     }
 }
