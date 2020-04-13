@@ -24,9 +24,13 @@ namespace WolfAndSheepGame
         }
 
         // Check if a board's position is occupied.
-        private bool IsOccupied(Position pos)
+        public bool IsOccupied(Position pos)
         {
-            return board[pos.X, pos.Y] != null;
+            // Check if the position is out of bounds of our board.
+            if(pos.Y > board.GetLength(1) - 1 || pos.Y < 0 || pos.X > board.GetLength(0) || pos.X < 0)
+                return true;
+            else
+                return board[pos.X, pos.Y] != null;
         }
 
         // Add a piece to a board's position.

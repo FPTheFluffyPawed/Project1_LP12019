@@ -20,23 +20,6 @@ namespace WolfAndSheepGame
         // Empty constructor.
         public Game() { }
 
-        /*private void Directions()
-        {
-            string Hdirection;
-            string Vdirection;
-
-            Console.WriteLine("Do you wish to move up or down?");
-            Console.WriteLine("1- up");
-            Console.WriteLine("2- down");
-            Vdirection = Console.ReadLine();
-
-            Console.WriteLine("Do you wish to move left or right?");
-            Console.WriteLine("1- left");
-            Console.WriteLine("2- right");
-            Hdirection = Console.ReadLine();
-            return (Hdirection, Vdirection);
-        }*/
-
         private bool WinCondition()
         {
             for (int i = 0; i < 7; i++)
@@ -85,11 +68,16 @@ namespace WolfAndSheepGame
         /// </summary>
         private void Turn()
         {
+            // Input variable.
+            string aux;
+
+            // Turn counter.
             int turn = 0;
 
             while (true)
             {
                 turn++;
+                aux = null;
 
                 // Render the board.
                 board.Render();
@@ -108,31 +96,59 @@ namespace WolfAndSheepGame
                 }
                 else
                 {
-                    Console.WriteLine("Player 2, it's your turn!");
-                    Console.WriteLine("1-Purple");
-                    Console.WriteLine("2-Green");
-                    Console.WriteLine("3-Blue");
-                    Console.WriteLine("4-Yellow");
-                    string aux = Console.ReadLine();
-
-                    switch(aux)
+                    do
                     {
-                        case "1":
-                            sheep1.Move(board);
-                            break;
-                        case "2":
-                            sheep2.Move(board);
-                            break;
-                        case "3":
-                            sheep3.Move(board);
-                            break;
-                        case "4":
-                            sheep4.Move(board);
-                            break;
-                    }
-                }
+                        Console.WriteLine("Player 2, it's your turn!");
+                        Console.WriteLine("Which sheep to move?");
+                        aux = Console.ReadLine();
 
-                // Repeat ->
+                        aux = CheckMovement(aux);
+                    } while (aux == null);
+                }
+            }
+        }
+
+        private string CheckMovement(string aux)
+        {
+            // Return aux as null to indicate that the selected option didn't
+            // work.
+            switch(aux)
+            {
+                case "1":
+                    if(sheep1.CanMoveAtAll(board))
+                    {
+                        sheep1.Move(board);
+                        return aux;
+                    }
+                    return aux = null;
+
+                case "2":
+                    if (sheep2.CanMoveAtAll(board))
+                    {
+                        sheep2.Move(board);
+                        return aux;
+                    }
+                    return aux = null;
+
+                case "3":
+                    if (sheep3.CanMoveAtAll(board))
+                    {
+                        sheep3.Move(board);
+                        return aux;
+                    }
+                    return aux = null;
+
+                case "4":
+                    if (sheep4.CanMoveAtAll(board))
+                    {
+                        sheep4.Move(board);
+                        return aux;
+                    }
+                    return aux = null;
+
+                default:
+                    Console.WriteLine("Please select a valid option.");
+                    return aux = null;
             }
         }
 
@@ -180,7 +196,6 @@ namespace WolfAndSheepGame
                 }
             }
             while (insert == null);
-
 
             // Begin the game after that!
             Turn();
