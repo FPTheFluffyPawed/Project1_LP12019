@@ -63,7 +63,6 @@ namespace WolfAndSheepGame
             }
             return true;
         }
-
         /// <summary>
         /// Method that handles the turn logic between players.
         /// </summary>

@@ -46,12 +46,11 @@ namespace WolfAndSheepGame
 
         public void MovePiece(Sheep sheep, Position position)
         {
-            // Place sheep there.
-            board[position.X, position.Y] = sheep;
+                    // Place sheep there.
+                    board[position.X, position.Y] = sheep;
 
-            // Remove origin.
-            board[sheep.Pos.X, sheep.Pos.Y] = null;
-
+                    // Remove origin.
+                    board[sheep.Pos.X, sheep.Pos.Y] = null;
         }
 
         // Render out the board.

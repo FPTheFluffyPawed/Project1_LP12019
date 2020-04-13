@@ -57,6 +57,7 @@ namespace WolfAndSheepGame
             {
                 Console.WriteLine("Left or right? ('1' or '2')");
                 aux = Console.ReadLine();
+
                 switch (aux)
                 {
                     case "1":
