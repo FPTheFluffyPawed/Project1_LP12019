@@ -41,7 +41,7 @@ namespace WolfAndSheepGame
         {
             if (board.IsOccupied(destination))
             {
-                Console.WriteLine("This sheep can't move there!");
+                Console.WriteLine("This piece can't move there!");
                 return false;
             }
             else
@@ -55,7 +55,7 @@ namespace WolfAndSheepGame
 
             do
             {
-                Console.WriteLine("Left or right? ('1' or '2')");
+                Console.WriteLine("Up/Left (1) or Up/Right? (2)");
                 aux = Console.ReadLine();
 
                 switch (aux)

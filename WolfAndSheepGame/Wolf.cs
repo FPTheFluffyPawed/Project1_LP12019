@@ -19,8 +19,8 @@ namespace WolfAndSheepGame
 
             do
             {
-                Console.WriteLine("Left or right? ('1' or '2')");
-                Console.WriteLine("Up or DOwn? ('3' or '4')");
+                Console.WriteLine("Down/Right (1) or Down/Left (2)?");
+                Console.WriteLine("Up/Left (3) or Up/Right (4)?");
                 aux = Console.ReadLine();
 
                 switch (aux)
