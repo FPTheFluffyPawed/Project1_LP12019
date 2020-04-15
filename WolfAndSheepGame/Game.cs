@@ -26,7 +26,10 @@ namespace WolfAndSheepGame
             {
                 Position position = new Position(7,i);
                 if (board.GetPieceAt(position) == wolf)
+                {
+                    Console.WriteLine("The wolf reached the end!\nPlayer 1 wins!");
                     return true;
+                }
             }
             return false;
         }
@@ -45,7 +48,7 @@ namespace WolfAndSheepGame
                 && board.IsOccupied(destination3)
                 && board.IsOccupied(destination4))
             {
-                Console.WriteLine("The wolf can't move!");
+                Console.WriteLine("The wolf can't move!\nPlayer 2 wins!");
                 return true;
             }
             else

@@ -14,6 +14,8 @@ namespace WolfAndSheepGame
         List<string> historic = new List<string>();
         string currentMenu;
 
+        Game game = new Game();
+
         public Menu()
         {
             MenuInterface();
@@ -41,8 +43,9 @@ namespace WolfAndSheepGame
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        Console.WriteLine("Manteiga");
-                        System.Environment.Exit(1);
+                        Console.WriteLine("\n*** Game is starting! ***\n");
+                        game.Play();
+                        Console.WriteLine("\n*** Game is over! ***\n");
                         break;
                     case "2":
                         if (currentMenu == "menu1")
