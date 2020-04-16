@@ -1,59 +1,53 @@
 # 1º Projeto de Linguagens de Programação I 2019/2020
 
-## Autores
-Diogo Heriques, a21802132
+## Autoria
+**Diogo Heriques (a21802132)**
 
-Inácio Amerio, a21803493
+- Fez a classe `Menu.cs`, tratando da lógica e programação da classe, fez o 
+  movimento na classe `Wolf.cs` e a _win condition_ na classe `Game.cs` e 
+  trabalhou na documentação do projeto, como o `README.md` e o fluxograma.
 
-João Dias, a21803573
+**Inácio Amerio (a21803493)**
 
-[Repositório Git](https://github.com/FPTheFluffyPawed/Project1_LP12019)
+- Início o projeto, organizou o trabalho como iria ser e ajudou os outros 
+  membros do grupo com o trabalho. Trabalhou nas classes `Board.cs`, `Game.cs`, 
+  `Sheep.cs`, `Wolf.cs` e `Position.cs`.
 
-## Organização do trabalho
+**João Dias (a21803573)**
 
-Cada membro do grupo fez:
+- Fez a classe `Game.cs`, ajudou com o Diogo a classe `Menu.cs` e trabalhou na 
+  lógica do movimento com o Inácio nas classes `Sheep.cs` e `Wolf.cs`.
 
-Diogo Henriques:
+[Repositório Git público.](https://github.com/FPTheFluffyPawed/Project1_LP12019)
 
-* Fez a classe `Menu` e `Board`.
-* Fez o documento `Markdown`.
+## Arquitetura da solução
 
-Inácio Amerio:
+### Descrição da solução
 
-* Fez a classe `Board`, `EnumPosition`, `Position`.
+O programa foi organizado de forma que as classes pudessem aceder umas as outras 
+de forma ascendente. No caso das classes `Menu.cs`, `Board.cs` e `Game.cs`, foi 
+feito a partir do `Program.cs` que comece no `Menu.cs`, e depois acedesse a 
+`Game.cs` e depois acedesse a `Board.cs`.
 
-João Dias:
+As classes `Position.cs`, `Sheep.cs`, `Wolf.cs` são utilizadas para a 
+organização de dados. A classe `Position.cs` é utilizado para guardar as 
+posições de `Sheep.cs` e `Wolf.cs`, em que estas duas classes são utilizados no 
+`Board.cs`.
 
-* Fez as classes `Game` e `Sheep`.
+`Wolf.cs` herda de `Sheep.cs`, pois estas classes partilham as mesmas funções, 
+como por exemplo o método `Move(Board board)` que é utilizado para o movimento 
+destas peças no `Board.cs`.
 
-## Descrição da solução
+`Menu.cs` é o primeiro ecrã do nosso programa, e só trata em meter o utilizador 
+no jogo através das opções fornecidas por esta classe.
 
-### Estrutura do Programa
-O programa foi estruturado em:
-
-* Dados de Estrutura (As _enumPosition_ e _Position_)
-* Elementos de Estrutura (_Board_)
-* Agentes do jogo (_Wolf, Sheep_)
-* Estrutura de Jogo e Apresentação (_Game, Program, Menu_)
-
-Nós usamos classes para estruturar o nosso programa, de forma a que as mesmas 
-interagissem entre si e fazendo `Game` ser chamado no `Menu` e por
-fim executar `Menu` no `Program`.
-
-Os dados de estrutura não fazem nada senão guardar informação que vai ser usada 
-pela `Board`, `Sheep` e `Wolf`.
-
-Os Ajudantes do jogo, `Sheep` e `Wolf` interagem entre si sendo que `Wolf`
-extende de `Sheep` para adotar o movimento e a cor que é definido na classe
-`sheep`.
-
-As classes de Estrutura de Jogo e Apresentação "ordenam" todas as anteriores, 
-inicializando-as e apresentando os dados, agentes, e elementos.
-
-### Fluxograma 
+### Fluxograma
 
 ![<Fluxograma>](images/Fluxograma.png)
 
 ### Referências
 
-* 
+* O projeto
+[Zombies and Humans](https://github.com/VideojogosLusofona/lp1_2018_p2_solucao), 
+feito por o professor Nuno Fachada, foi utilizado como refêrencia para o
+desenvolvimento deste projeto.
