@@ -83,7 +83,10 @@ namespace WolfAndSheepGame
                 // If 1, player 1's turn. If 2, player 2's turn.
                 if(turn % 2 == 1)
                 {
-                    Console.WriteLine("Player 1, it's your turn!");
+                    Console.WriteLine("\nPlayer 1, assign your Wolf to one of the" +
+                "possible positions on the first row!" +
+                "\nOut of the four possible locations, select one." +
+                "\n(From left to right: 1, 2, 3, 4.)");
                     wolf.Move(board);
                 }
                 else
@@ -92,6 +95,8 @@ namespace WolfAndSheepGame
                     {
                         Console.WriteLine("Player 2, it's your turn!");
                         Console.WriteLine("Which sheep to move?");
+                        Console.WriteLine("1 - Purple\n2 - Green\n3 - Blue" +
+                            "\n4 - Yellow\n");
                         aux = Console.ReadLine();
 
                         aux = CheckMovement(aux);
