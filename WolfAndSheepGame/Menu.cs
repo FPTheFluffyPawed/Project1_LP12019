@@ -24,14 +24,20 @@ namespace WolfAndSheepGame
         private void MenuInterface()
         {
             menus.Add("menu1", "1 - Start Game\n2 - Instructions\nb - Exit");
-            menus.Add("menu2", "===How does the game work?===\nWolf and Sheep is a" + 
-            " PVP game where one player controls the one wolf and the other" +
-            " player controls 4 sheep. The player controlling the wolf has to" +
-            " reach one of the original sheep squares, while the sheep player" +
-            " has to stop that from happening blocking the wolf movement options"
-            + "\n------General Rules------\nThe sheep moves diagonally," +
-            " forward one square per turn.\nThe wolf moves diagonally," +
-            " forward or backward, one square per turn.\nThe purple sheep is refered with the number 1\n - Back");
+            menus.Add("menu2", "*** How does the game work? ***\n" +
+                "\nWolf and Sheep is a PvP tabletop game." +
+                "\nWhere one player controls the Wolf.\nWhile the other" +
+                " player controls four sheep." +
+                "\nBoth Wolf and Sheep move one square per turn." +
+                "\nSheep chooses which Sheep to move before moving." +
+                "\n\nSheep can move diagonally and only forwards." +
+                "\nWolf can move diagonally, but forwards and backwards.\n" +
+                "\nWolf picks where to start and goes first." +
+                "\nSheep starts on the opposite end and goes second." +
+                "\n\n*** Win conditions ***\n" +
+                "\nWolf wins if they reach a sheep's starting position." +
+                "\nSheep wins if they block wolf's movement.\n" +
+                "\nb - Back");
 
             currentMenu = "menu1";
             while (true)
