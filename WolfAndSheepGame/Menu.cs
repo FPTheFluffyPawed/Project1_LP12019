@@ -29,8 +29,9 @@ namespace WolfAndSheepGame
             " player controls 4 sheep. The player controlling the wolf has to" +
             " reach one of the original sheep squares, while the sheep player" +
             " has to stop that from happening blocking the wolf movement options"
-            + "\n------General Rules------\nThe sheep moves diagonally and" +
-            " forward, one square per turn.\nb - Back");
+            + "\n------General Rules------\nThe sheep moves diagonally," +
+            " forward one square per turn.\nThe wolf moves diagonally," +
+            " forward or backward, one square per turn.\nThe purple sheep is refered with the number 1\n - Back");
 
             currentMenu = "menu1";
             while (true)
