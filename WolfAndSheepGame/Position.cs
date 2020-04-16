@@ -4,11 +4,13 @@ using System.Text;
 
 namespace WolfAndSheepGame
 {
+    /// <summary>
+    /// Position that is used when checking things in the Board.
+    /// </summary>
     public struct Position
     {
         // Variables.
         public int X { get; }
-
         public int Y { get; }
 
         // X and Y position assignment.
@@ -17,8 +19,5 @@ namespace WolfAndSheepGame
             X = x;
             Y = y;
         }
-
-        // Override to format the position.
-        public override string ToString() => $"({X}, {Y})";
     }
 }

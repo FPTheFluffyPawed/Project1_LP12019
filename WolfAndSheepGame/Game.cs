@@ -4,22 +4,26 @@ using System.Text;
 
 namespace WolfAndSheepGame
 {
-    class Game
+    /// <summary>
+    /// The Game class. It handles all gameplay logic.
+    /// </summary>
+    public class Game
     {
-
+        // Create a board.
         private Board board = new Board();
 
+        // Create our wolf and sheeps.
         private Wolf wolf = new Wolf(ConsoleColor.Red); 
         private Sheep sheep1 = new Sheep(ConsoleColor.Magenta);
         private Sheep sheep2 = new Sheep(ConsoleColor.Green);
         private Sheep sheep3 = new Sheep(ConsoleColor.Blue);
         private Sheep sheep4 = new Sheep(ConsoleColor.Yellow);
 
-        //private int turn = 0;
-
-        // Empty constructor.
-        public Game() { }
-
+        /// <summary>
+        /// This method just checks for every position on the last row and
+        /// checks if there's a wolf in it.
+        /// </summary>
+        /// <returns>If the wolf reached it, true, else, false.</returns>
         private bool WinCondition()
         {
             for (int i = 0; i < 7; i++)
@@ -34,15 +38,24 @@ namespace WolfAndSheepGame
             return false;
         }
 
+        /// <summary>
+        /// This method checks if the Wolf's possible movement positions are
+        /// occupied.
+        /// </summary>
+        /// <returns>True if all taken, false if one is available.</returns>
         private bool LoseCondition()
         {
             Position destination1, destination2, destination3, destination4;
 
+            // All four destinations that the wolf can move.
+            // Backwards and forwards.
             destination1 = new Position(wolf.Pos.X - 1, wolf.Pos.Y - 1);
             destination2 = new Position(wolf.Pos.X - 1, wolf.Pos.Y + 1);
             destination3 = new Position(wolf.Pos.X + 1, wolf.Pos.Y + 1);
             destination4 = new Position(wolf.Pos.X + 1, wolf.Pos.Y - 1);
 
+            // If they're ALL occupied, wolf loses.
+            // But if one isn't, wolf is still in the game!
             if (board.IsOccupied(destination1)
                 && board.IsOccupied(destination2)
                 && board.IsOccupied(destination3)
@@ -79,14 +92,11 @@ namespace WolfAndSheepGame
                 if (WinCondition() || LoseCondition())
                     break;
 
-                // Ask for input
+                // Ask for input.
                 // If 1, player 1's turn. If 2, player 2's turn.
                 if(turn % 2 == 1)
                 {
-                    Console.WriteLine("\nPlayer 1, assign your Wolf to one of the" +
-                "possible positions on the first row!" +
-                "\nOut of the four possible locations, select one." +
-                "\n(From left to right: 1, 2, 3, 4.)");
+                    Console.WriteLine("\nPlayer 1, it's your turn!");
                     wolf.Move(board);
                 }
                 else
@@ -105,6 +115,12 @@ namespace WolfAndSheepGame
             }
         }
 
+        /// <summary>
+        /// The method that checks if the selected sheep can move at all.
+        /// Used to avoid the player from picking an immovable sheep.
+        /// </summary>
+        /// <param name="aux">The selected sheep.</param>
+        /// <returns></returns>
         private string CheckMovement(string aux)
         {
             // Return aux as null to indicate that the selected option didn't
@@ -149,9 +165,14 @@ namespace WolfAndSheepGame
             }
         }
 
+        /// <summary>
+        /// The method to be called when starting the game.
+        /// It will assign the sheep positions, and then ask for
+        /// a wolf position.
+        /// </summary>
         public void Play()
         {
-            // Variables.
+            // The insert variable.
             string insert;
 
             // Assign sheep to their positions...
@@ -167,9 +188,10 @@ namespace WolfAndSheepGame
             // possible spots...
             do
             {
-                Console.WriteLine("\nPlayer 1, assign your Wolf to one of the" +
-                "possible positions on the first row!" +
-                "\nOut of the four possible locations, select one.");
+                Console.WriteLine("\nPlayer 1, assign your Wolf to one of " +
+                "the possible positions on the first row!" +
+                "\nOut of the four possible locations, select one." +
+                "\n(From left to right: 1, 2, 3, 4.)");
                 insert = Console.ReadLine();
 
                 switch(insert)

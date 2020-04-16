@@ -4,7 +4,10 @@ using System.Text;
 
 namespace WolfAndSheepGame
 {
-    class Menu
+    /// <summary>
+    /// Menu that handles the interface before playing the game.
+    /// </summary>
+    public class Menu
     {
         // The Dictionary is used to swap between menus.
         Dictionary<string, string> menus = new Dictionary<string, string>();
@@ -12,15 +15,25 @@ namespace WolfAndSheepGame
         // The List is used to save the current menu the user is in so we can
         // go back between the menus.
         List<string> historic = new List<string>();
+
+        // Variable to check the current menu we're at.
         string currentMenu;
 
+        // Create a new game.
         Game game = new Game();
 
+        /// <summary>
+        /// The constructor that starts the menu right away.
+        /// </summary>
         public Menu()
         {
             MenuInterface();
         }
 
+        /// <summary>
+        /// The bulk of the Menu. It handles all options and visuals.
+        /// This is where we can start the game, and exit the program.
+        /// </summary>
         private void MenuInterface()
         {
             menus.Add("menu1", "1 - Start Game\n2 - Instructions\nb - Exit");
@@ -49,11 +62,14 @@ namespace WolfAndSheepGame
                 Console.WriteLine(menus[currentMenu]);
                 switch (Console.ReadLine())
                 {
+                    // This option will start the game.
                     case "1":
                         Console.WriteLine("\n*** Game is starting! ***\n");
                         game.Play();
                         Console.WriteLine("\n*** Game is over! ***\n");
                         break;
+
+                    // Open the instructions menu.
                     case "2":
                         if (currentMenu == "menu1")
                         {
@@ -62,6 +78,7 @@ namespace WolfAndSheepGame
                         }
                         break;
                     
+                    // Exit the game, if we're at the top level of our menu.
                     case "b":
                         if (currentMenu == "menu1")
                         {
@@ -71,6 +88,7 @@ namespace WolfAndSheepGame
                         historic.RemoveAt(historic.Count - 1);
                         break;
 
+                    // Always ask for a valid option while in the menu.
                     default:
                         Console.WriteLine("Insert a valid input!");
                         break;
