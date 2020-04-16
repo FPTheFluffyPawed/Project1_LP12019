@@ -4,19 +4,34 @@ using System.Text;
 
 namespace WolfAndSheepGame
 {
-    class Wolf : Sheep
+    /// <summary>
+    /// Wolf derived from Sheep. Works just like the sheep, with the added
+    /// movement options.
+    /// </summary>
+    public class Wolf : Sheep
     {
+        /// <summary>
+        /// Constructor that asks for a color, and automatically assigns the
+        /// symbol as 'W' for the Board.
+        /// </summary>
+        /// <param name="color">Color to represent Wolf as.</param>
         public Wolf(ConsoleColor color) : base(color)
         {
             Symbol = 'W';
             Color = color;
         }
 
+        /// <summary>
+        /// The Move method that sorts out movement, specific to Wolf.
+        /// </summary>
+        /// <param name="board">Board to make moves on.</param>
         public override void Move(Board board)
         {
             Position destination;
             string aux;
 
+            // As long there isn't a valid option picked, this will keep
+            // asking for an input.
             do
             {
                 Console.WriteLine("Down/Right (1) or Down/Left (2)?");
